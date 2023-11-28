@@ -22,13 +22,13 @@ jobs:
         with:
           r-version: '4.2.0'
 
-      - name: Install packages
+      - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: |
+          packages: |
             any::readr
             any::ggplot2
-            any::magrittr
+            any::dplyr
             any::here
             any::knitr
       
