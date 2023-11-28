@@ -31,6 +31,7 @@ jobs:
             any::dplyr
             any::here
             any::knitr
+            any::rmarkdown
       
       - name: Knit R script to qmd
         run: Rscript -e 'knitr::spin(here::here("scripts/report.R"), format = "qmd", knit = FALSE)'
