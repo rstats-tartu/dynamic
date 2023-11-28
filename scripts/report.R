@@ -5,7 +5,9 @@
 
 #'  
 #+
-library(tidyverse)
+library(readr)
+library(ggplot2)
+library(magrittr)
 library(here)
 
 

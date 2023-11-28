@@ -25,8 +25,10 @@ jobs:
       - name: Install packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: |
-            any::tidyverse 
+          extra-packages: |
+            any::readr
+            any::ggplot2
+            any::magrittr
             any::here
             any::knitr
       
@@ -37,7 +39,7 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: scripts
+          path: scripts/report.qmd
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
