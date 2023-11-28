@@ -22,10 +22,16 @@ jobs:
         with:
           r-version: '4.2.0'
 
-      - name: Install R Dependencies
-        uses: r-lib/actions/setup-renv@v2
+      - name: Install packages
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 1
+          packages: |
+            any::tidyverse 
+            any::here
+            any::knitr
+      
+      - name: Knit R script to qmd
+        run: Rscript -e 'knitr::spin(here::here("scripts/report.R"), format = "qmd", knit = FALSE)'
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
