@@ -29,6 +29,7 @@ jobs:
             any::readr
             any::ggplot2
             any::dplyr
+            any::forcats
             any::here
             any::knitr
             any::rmarkdown
