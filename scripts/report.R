@@ -20,12 +20,33 @@ path <- "data/penis_long_format.csv"
 penis <- read_csv(here(path))
 
 #' 
-#' Plotting penis size versus reporting @fig-pplot.
+#' Plotting penis size versus reporting @fig-pplot1.
 #+
-#| label: fig-pplot
-#| fig-cap: "Well somebody is exaggerating their member size."
+#| label: fig-pplot1
+#| fig-cap: "Self-reporting exaggerates penis size."
 penis %>% 
   ggplot(aes(Method, length)) +
   geom_boxplot() +
-  geom_point(position = "jitter")
+  geom_point(position = "jitter") +
+  labs(y = "Average penis length, cm")
+
+#' 
+#' Plotting penis size versus reporting in different world regions @fig-pplot2.
+#+
+#| label: fig-pplot2
+#| fig-cap: "Penis size in different regions."
+penis %>% 
+  ggplot(aes(fct_reorder(Region, length), length, color = Method)) +
+  geom_boxplot(outlier.shape = NULL, position = position_dodge2(preserve = "single")) +
+  geom_point(position = position_dodge(0.75)) +
+  labs(y = "Average penis length, cm") +
+  coord_flip() +
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "top"
+    )
+
+
+
+
 
