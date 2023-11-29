@@ -20,6 +20,9 @@ library(here)
 path <- "data/penis_long_format.csv"
 penis <- read_csv(here(path))
 
+#+
+penis
+
 #' 
 #' Plotting penis size versus reporting @fig-pplot1.
 #+
