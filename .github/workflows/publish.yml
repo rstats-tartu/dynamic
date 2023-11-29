@@ -26,7 +26,7 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
-            any::readr # any:: prefix tells pak to install these packages from CRAN
+            any::readr
             any::ggplot2
             any::dplyr
             any::here
